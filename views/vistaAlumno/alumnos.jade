@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+  nav(class=["navbar","navbar-expand-lg","navbar-light"], style="background-color: #e3f2fd;")
+
+    a(class=["navbar-brand"], href="#") Investigación
+
+    button(class=["navbar-toggler"], type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav',
+    aria-expanded='false', aria-label='Toggle navigation')
+      span(class=["navbar-toggler-icon"])
+
+    div(class=["collapse","navbar-collapse"], id="navbarNav")
+      ul(class=["w-100","navbar-nav","d-flex","justify-content-center"])
+        li(class=["nav-item","active","mr-md-5"], style="text-align: center; font-size: 20px;")
+          a(class=["nav-link"], href="/admin/alumnos") Usuarios
+
+        li(class=["nav-item","ml-md-5","mr-md-5"], style="text-align: center; font-size: 20px;")
+          a(class=["nav-link"], href="nosotros.html") Nosotros
+
+        li(class=["nav-item","ml-md-5","mr-md-5"], style="text-align: center; font-size: 20px;")
+          a(class=["nav-link"], href="#") Articulos
+
+        li(class=["nav-item","ml-md-5"], style="text-align: center; font-size: 20px;")
+          a(class=["nav-link", "disabled"], href="contacto.html") Contacto
+

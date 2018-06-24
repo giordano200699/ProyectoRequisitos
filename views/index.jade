@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  form(action='validacion')
+    label Administrador :
+    input(class=['col-5'] , 
+      type='text'
+      name='nombreCuenta'
+    ) 
+    br
+    label Contraseña :
+    input(
+      type='text'
+      name='contrasenia'
+    )
+    br
+    button(
+      type='submit'
+    ) Ingresar
+  

@@ -1,0 +1,26 @@
+extends ../layout2
+
+block content
+  h1= 'Crear alumnos'
+  form(action='alumnos/creando', method='POST')
+    label Nombres :
+    input(class=['col-5'] , 
+      type='text'
+      name='nombres'
+    ) 
+    br
+    label Apellidos :
+    input(
+      type='text'
+      name='apellidos'
+    )
+    br
+    label Correo :
+    input(
+      type='text'
+      name='correo'
+    )
+    br
+    button(
+      type='submit'
+    ) Crear alumno
