@@ -1,0 +1,43 @@
+extends ../layout2
+
+block content
+  a(class=["navbar-brand"], href="../alumnos") Crear Alumnos
+  -if(alumnos.length)
+    table
+      tr
+        th Id
+        th Nombres
+        th Apellidos
+        th Email
+        th Codigo Pregrado
+        th Editar
+        th Eliminar
+      -each alumno in alumnos
+        tr
+          td #{alumno.idAlumno}
+          td #{alumno.nombres}
+          td #{alumno.apellidos}
+          td #{alumno.correo}
+          td #{alumno.codigoPregrado}
+          td
+            form(action='editar', method='POST')
+              input(
+                type ='text'
+                name ='idAlumno'
+                hidden = 'true',
+                value = '#{alumno.idAlumno}'
+              )
+              button(
+                type='submit'
+              ) Editar
+          td
+            form(action='eliminar', method='POST')
+              input(
+                type ='text'
+                name ='idAlumno'
+                hidden = 'true',
+                value = '#{alumno.idAlumno}'
+              )
+              button(
+                type='submit'
+              ) Eliminar

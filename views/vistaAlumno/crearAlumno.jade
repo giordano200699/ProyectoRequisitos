@@ -2,6 +2,7 @@ extends ../layout2
 
 block content
   h1= 'Crear alumnos'
+  a(class=["navbar-brand"], href="alumnos/mostrar") Ver Alumnos
   form(action='alumnos/creando', method='POST')
     label Nombres :
     input(class=['col-5'] , 
@@ -19,6 +20,12 @@ block content
     input(
       type='text'
       name='correo'
+    )
+    br
+    label Codigo Pregrado :
+    input(
+      type='text'
+      name='codigoPregrado'
     )
     br
     button(

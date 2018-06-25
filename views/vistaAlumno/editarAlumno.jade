@@ -1,0 +1,67 @@
+extends ../layout2
+
+block content
+  -if(alumno.codigoBachiller==null)
+    -var variable1 = ''
+  -else
+    -var variable1 = alumno.codigoBachiller
+  -if(alumno.codigoTitulo==null)
+    -var variable2 = ''
+  -else
+    -var variable2 = alumno.codigoTitulo
+
+  h1= 'Editar alumno'
+  a(class=["navbar-brand"], href="mostrar") Ver Alumnos
+  form(action='actualizar', method='POST')
+    input(
+      type ='text'
+      name ='idAlumno'
+      hidden = 'true',
+      value = '#{alumno.idAlumno}'
+    )
+    label Nombres :
+    input(class=['col-5'] , 
+      type='text'
+      name='nombres'
+      value= '#{alumno.nombres}'
+    ) 
+    br
+    label Apellidos :
+    input(
+      type='text'
+      name='apellidos'
+      value= '#{alumno.apellidos}'
+    )
+    br
+    label Correo :
+    input(
+      type='text'
+      name='correo'
+      value= '#{alumno.correo}'
+    )
+    br
+    label Codigo Pregrado :
+    input(
+      type='text'
+      name='codigoPregrado'
+      value= '#{alumno.codigoPregrado}'
+    )
+    br
+    label Codigo Bachiller :
+    input(
+      type='text'
+      name='codigoBachiller'
+      value= '#{variable1}'
+    )
+    br
+    label Codigo Titulo :
+    input(
+      type='text'
+      name='codigoTitulo'
+      
+      value= '#{variable2}'
+    )
+    br
+    button(
+      type='submit'
+    ) Editar alumno

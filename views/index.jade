@@ -1,22 +1,40 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  form(action='validacion')
-    label Administrador :
-    input(class=['col-5'] , 
-      type='text'
-      name='nombreCuenta'
-    ) 
-    br
-    label Contraseña :
-    input(
-      type='text'
-      name='contrasenia'
-    )
-    br
-    button(
-      type='submit'
-    ) Ingresar
+
+  div(id='login')
+    h2 BIENVENIDO
+    button(onclick="document.getElementById('id01').style.display='block'",style="width: auto;") Iniciar Sesion
+
+  div.modal(id='id01')
+    form(class=["modal-content","animate"],action="validacion")
+      div.imgcontainer
+        span(onclick="document.getElementById('id01').style.display='none'", class="close", title="Close Modal") &times;
+        img(src="/imagenes/login.png", alt="Avatar", class="avatar")
+
+        div(class="container")
+          label(for="nombreCuenta")
+            b Administrador
+          input(type="text", name="nombreCuenta", required="true")
+
+          label(for="contrasenia")
+            b Constraseña
+          input(type="password", name="contrasenia", required="true")
+
+          button(type="submit") Login
+
+          label
+            input(type="checkbox", checked="checked", name='rememver', value="Recuerdame")
+        div(class="container", style="background-color: #f1f1f1")
+          button(type="button", onclick="document.getElementById('id01').style.display='none'", class="cancelbtn") Cancelar
+          span(class="psw") Olvidaste tu
+            a(href="#") password?
+
+  script
+    | var modal=document.getElementById('id01');
+    | window.onclick=function(event){
+    |     if(event.target==modal){
+    |        modal.style.display="none";
+    |    }
+    | }
   
