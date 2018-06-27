@@ -1,40 +1,40 @@
 extends layout
 
 block content
+  div.fondoLogin
+    div(id='loginLogin')
+      h2.tituloLogin BIENVENIDO
+      button(class="buttonLogin",onclick="document.getElementById('id01Login').style.display='block'",style="width: auto;") Iniciar Sesion
 
-  div(id='login')
-    h2 BIENVENIDO
-    button(onclick="document.getElementById('id01').style.display='block'",style="width: auto;") Iniciar Sesion
+    div.modalLogin(id='id01Login')
+      form(class=["modal-contentLogin","animateLogin"],action="validacion")
+        div.imgcontainerLogin
+          span(onclick="document.getElementById('id01Login').style.display='none'", class="closeLogin spanLogin", title="Close Modal") &times;
+          img(src="/imagenes/login.png", alt="Avatar", class="avatarLogin imgLogin")
 
-  div.modal(id='id01')
-    form(class=["modal-content","animate"],action="validacion")
-      div.imgcontainer
-        span(onclick="document.getElementById('id01').style.display='none'", class="close", title="Close Modal") &times;
-        img(src="/imagenes/login.png", alt="Avatar", class="avatar")
+          div(class="containerLogin")
+            label(class="labelLogin",for="nombreCuenta")
+              b Administrador
+            input(class="inputLogin",type="text", name="nombreCuenta", required="true")
 
-        div(class="container")
-          label(for="nombreCuenta")
-            b Administrador
-          input(type="text", name="nombreCuenta", required="true")
+            label(class="labelLogin",for="contrasenia")
+              b Constraseña
+            input(class="inputLogin",type="password", name="contrasenia", required="true")
 
-          label(for="contrasenia")
-            b Constraseña
-          input(type="password", name="contrasenia", required="true")
+            button(class="buttonLogin",type="submit") Login
 
-          button(type="submit") Login
+            label.labelLogin
+              input(class="inputLogin",type="checkbox", checked="checked", name='rememver', value="Recuerdame")
+          div(class="containerLogin", style="background-color: #f1f1f1")
+            button(type="button", onclick="document.getElementById('id01Login').style.display='none'", class="buttonLogin cancelbtnLogin") Cancelar
+            span(class="pswLogin spanLogin") Olvidaste tu
+              a(class="aLogin",href="#") password?
 
-          label
-            input(type="checkbox", checked="checked", name='rememver', value="Recuerdame")
-        div(class="container", style="background-color: #f1f1f1")
-          button(type="button", onclick="document.getElementById('id01').style.display='none'", class="cancelbtn") Cancelar
-          span(class="psw") Olvidaste tu
-            a(href="#") password?
-
-  script
-    | var modal=document.getElementById('id01');
-    | window.onclick=function(event){
-    |     if(event.target==modal){
-    |        modal.style.display="none";
-    |    }
-    | }
-  
+    script
+      | var modal=document.getElementById('id01Login');
+      | window.onclick=function(event){
+      |     if(event.target==modalLogin){
+      |        modalLogin.style.display="none";
+      |    }
+      | }
+    

@@ -1,4 +1,3 @@
-var AdminController = require('../controladores/AdministradorControlador');
 var express = require('express');
 var router = express.Router();
 
@@ -11,7 +10,7 @@ router.get('/validacion', function(req, res, next) {
 
 
   //-------------------------------------
-  AdminController.iniciandoSesion();
+ // AdminController.iniciandoSesion();
 //-------------------------------------
 
 
