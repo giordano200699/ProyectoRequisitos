@@ -1,3 +1,4 @@
+var AdminController = require('../controladores/AdministradorControlador');
 var express = require('express');
 var router = express.Router();
 
@@ -7,6 +8,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/validacion', function(req, res, next) {
+
+
+  //-------------------------------------
+  AdminController.iniciandoSesion();
+//-------------------------------------
+
+
 
   if(req.query.nombreCuenta == 'giordano' &&
   	req.query.contrasenia == 'contra'){
