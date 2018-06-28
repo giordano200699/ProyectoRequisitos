@@ -1,18 +1,20 @@
 const Administrador=require('../esquemas/Administrador');
 
-exports.iniciarSesion = (data)=>{
+exports.iniciarSesion = (req,res)=>{
+
     Administrador.findAll({
         where:{
-            correo:data.correo,
-            password:data.password
+            correo:req.query.nombreCuenta,
+            password:req.query.contrasenia
         }
     }).then(objeto=>{
-        if(objeto!=null){
-            return objeto;
+        if(objeto.length!=0){
+            console.log('Inicio cesion correctamente...');
+            res.redirect('/admin');
         }else{
-            console.log('No se encontro en la base de datos');
-            return null;
+            console.log('No se pude acceder...');
+            //res.render('datosLoginInvalidos');
+            res.render('index');
         }
     })
 }
-
