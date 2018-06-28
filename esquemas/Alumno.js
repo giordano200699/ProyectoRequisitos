@@ -14,7 +14,7 @@ var Alumno = sequelize.define('alumno', {
   codigoTitulo: { type: Sequelize.STRING, allowNull: true }
 });
 
-Alumno.obtenerCarpetas = Alumno.hasMany(Carpeta, { foreignKey: 'idAlumno',as: 'carpetas' });
+Alumno.obtenerCarpetas = Alumno.hasMany(Carpeta, { foreignKey: 'idCarpetaPadre',as: 'carpetas' });
 
 const obtenerImagenes=Alumno.hasMany(Imagen, { foreignKey: 'idAlumno' ,as: 'imagenes'});
 
