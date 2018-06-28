@@ -11,6 +11,6 @@ const Administrador = sequelize.define('administrador', {
 
 //Descomentar esto para crear la tabla y usar npm start
 //Al crear la tabla comentar esto y reiniciar el servidor
-Alumno.sync();
+//Administrador.sync();
 
 module.exports = Administrador;
