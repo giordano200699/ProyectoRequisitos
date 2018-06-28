@@ -1,0 +1,14 @@
+extends ../layoutVisualizarAlumno
+
+block content
+  form.register(action='/admin/subirfoto', enctype='multipart/form-data', method='post')
+      
+    br
+    |Selecciona la imagen
+    input(type="file", name='foto')
+    br
+    input(type='text', name='idCarpeta', value='#{carpetas[0].idCarpeta}', hidden = 'true')
+    input(type='text', name='descripcion', value='Foto 1', hidden = 'true')
+    input(type='text', name='orden', value='1', hidden = 'true')
+    input(type='text', name='esSuelto', value='1', hidden = 'true')
+    input(type='submit', value='Guardar')

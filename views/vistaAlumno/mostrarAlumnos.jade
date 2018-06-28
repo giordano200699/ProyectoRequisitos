@@ -10,6 +10,7 @@ block content
         th Apellidos
         th Email
         th Codigo Pregrado
+        th Visualizar
         th Editar
         th Eliminar
       -each alumno in alumnos
@@ -19,6 +20,17 @@ block content
           td #{alumno.apellidos}
           td #{alumno.correo}
           td #{alumno.codigoPregrado}
+          td
+            form(action='visualizar', method='POST')
+              input(
+                type ='text'
+                name ='idAlumno'
+                hidden = 'true',
+                value = '#{alumno.idAlumno}'
+              )
+              button(
+                type='submit'
+              ) Visualizar
           td
             form(action='editar', method='POST')
               input(

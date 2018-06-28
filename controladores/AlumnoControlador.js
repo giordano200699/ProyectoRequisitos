@@ -1,5 +1,6 @@
 const am = require('../modelos/AlumnoModelo');
 
+
 exports.crearAlumno = (req, res) => {
 	const alumno = {
     	nombres: req.body.nombres,
@@ -16,6 +17,16 @@ exports.mostrarAlumnos = (req, res) => {
       if(err) return console.log(err);
       res.render('vistaAlumno/mostrarAlumnos',{alumnos : alumnos});
     });
+}
+
+exports.visualizarAlumno = (req, res) => {
+  am.obtener(req.body.idAlumno,(err, alumno)=>{
+    if(err) return console.log(err);
+    alumno.getCarpetas().then(carpetas => {
+      //console.log("ESTE ES EL ALUMNO ",carpetas[0].tipo);
+      res.render('vistaAlumno/visualizarAlumno',{alumno : alumno, carpetas: carpetas});
+    });
+  });
 }
 
 exports.editarAlumno = (req, res) => {

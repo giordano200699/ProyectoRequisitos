@@ -21,8 +21,31 @@ html
         a(href='/admin/alumnos') Alumnos
         a.cerrarSesion(href='') Cerra Sesion
     div.row
-      block content
+      .leafcolumn
+        -each carpeta in carpetas
+          .card
+            h5 #{carpeta.tipo}
+      .rightcolumn
+        block content
+        .card
+          .box
+            .borrar
+          .box
+            .borrar
+          .box
+            .borrar
+          .box
+            .borrar
+          .box
+            .borrar
+          .box
+            .borrar
+          .box
+            .borrar
     .footer
         h2 Este es el footer
 
 
+
+
+  

@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const configuracion = require('../configuracion/db');
-const Alumno = require('../esquemas/Alumno');
+//const Alumno = require('../esquemas/Carpeta');
 
 const sequelize = new Sequelize(configuracion.database, configuracion.username, configuracion.password, {
   host: configuracion.host,
