@@ -28,4 +28,6 @@ router.post('/alumnos/eliminar', ac.eliminarAlumno);
 
 router.post('/subirFoto',upload.array('foto', 2), ic.subirImagen);
 
+router.get('/alumnos/visualizarAlumno',ac.visualizarAlumno);
+
 module.exports = router;

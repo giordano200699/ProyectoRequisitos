@@ -2,7 +2,7 @@ extends ../layout2
 
 block content
   h1= 'Crear alumnos'
-  a(class=["navbar-brand"], href="alumnos/mostrar") Ver Alumnos
+  a(class=["navbar-brand"], href="/admin/alumnos/mostrar") Ver Alumnos
   form(action='alumnos/creando', method='POST')
     label Nombres :
     input(class=['col-5'] , 

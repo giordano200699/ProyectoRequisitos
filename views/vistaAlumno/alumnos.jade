@@ -3,7 +3,7 @@ extends ../layout
 block content
   nav(class=["navbar","navbar-expand-lg","navbar-light"], style="background-color: #e3f2fd;")
 
-    a(class=["navbar-brand"], href="#") Investigación
+    a(class=["navbar-brand"], href="/admin") HOME
 
     button(class=["navbar-toggler"], type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav',
     aria-expanded='false', aria-label='Toggle navigation')
@@ -12,14 +12,11 @@ block content
     div(class=["collapse","navbar-collapse"], id="navbarNav")
       ul(class=["w-100","navbar-nav","d-flex","justify-content-center"])
         li(class=["nav-item","active","mr-md-5"], style="text-align: center; font-size: 20px;")
-          a(class=["nav-link"], href="/admin/alumnos") Usuarios
+          a(class=["nav-link"], href="/admin") Alumnos
 
         li(class=["nav-item","ml-md-5","mr-md-5"], style="text-align: center; font-size: 20px;")
-          a(class=["nav-link"], href="nosotros.html") Nosotros
+          a(class=["nav-link"], href="/admin/alumnos") Agregar Alumnos
 
         li(class=["nav-item","ml-md-5","mr-md-5"], style="text-align: center; font-size: 20px;")
-          a(class=["nav-link"], href="#") Articulos
-
-        li(class=["nav-item","ml-md-5"], style="text-align: center; font-size: 20px;")
-          a(class=["nav-link", "disabled"], href="contacto.html") Contacto
+          a(class=["nav-link"], href="/admin/alumnos/mostrar") Mostrar Alumno
 
