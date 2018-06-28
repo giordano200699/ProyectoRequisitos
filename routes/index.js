@@ -10,9 +10,7 @@ router.get('/', function(req, res, next) {
 router.get('/validacion', function(req, res, next) {
 
 
-  //-------------------------------------
   AdminController.iniciandoSesion();
-//-------------------------------------
 
 
 
