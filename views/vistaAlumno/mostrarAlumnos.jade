@@ -21,6 +21,7 @@ block content
           td #{alumno.correo}
           td #{alumno.codigoPregrado}
           td
+
             form(action='visualizar', method='POST')
               input(
                 type ='text'
@@ -31,7 +32,9 @@ block content
               button(
                 type='submit'
               ) Visualizar
+          
           td
+          
             form(action='editar', method='POST')
               input(
                 type ='text'
@@ -42,7 +45,9 @@ block content
               button(
                 type='submit'
               ) Editar
+          
           td
+          
             form(action='eliminar', method='POST')
               input(
                 type ='text'

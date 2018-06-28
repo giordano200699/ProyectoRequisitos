@@ -8,7 +8,8 @@ const Imagen = sequelize.define('imagen', {
   url: { type: Sequelize.STRING, allowNull: false },
   orden: { type: Sequelize.INTEGER, allowNull: false },
   esSuelto: { type: Sequelize.BOOLEAN, allowNull: false },
-  descripcion: { type: Sequelize.STRING, allowNull: true }
+  descripcion: { type: Sequelize.STRING, allowNull: true },
+  idCarpeta:{ type: Sequelize.INTEGER }
 });
 
 
