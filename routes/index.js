@@ -8,18 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/validacion', function(req, res, next) {
-
-
-  AdminController.iniciandoSesion();
-
-
-
-  if(req.query.nombreCuenta == 'giordano' &&
-  	req.query.contrasenia == 'contra'){
-  	res.redirect('/admin');
-  }else{
-  	res.render('datosLoginInvalidos');
-  }
+  AdminController.iniciandoSesion(req,res);
 });
 
 module.exports = router;

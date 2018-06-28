@@ -10,5 +10,4 @@ exports.crearImagen = (data) => {
     descripcion: data.descripcion,
     idCarpeta: data.idCarpeta
   });
-
 }

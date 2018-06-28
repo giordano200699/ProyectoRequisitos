@@ -19,9 +19,6 @@ Alumno.obtenerCarpetas = Alumno.hasMany(Carpeta, { foreignKey: 'idAlumno',as: 'c
 const obtenerImagenes=Alumno.hasMany(Imagen, { foreignKey: 'idAlumno' ,as: 'imagenes'});
 
 
-
-
-
 //Descomentar esto para crear la tabla y usar npm start
 //Al crear la tabla comentar esto y reiniciar el servidor
 //Alumno.sync();

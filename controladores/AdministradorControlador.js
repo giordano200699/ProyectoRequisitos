@@ -1,13 +1,6 @@
 const modeloAdministrador=require('../modelos/AdministradorModelo');
 
-exports.iniciandoSesion = ()=>{
-    const data={
-        correo:'giordano',
-        password:'contra'
-    }
-    let resp=modeloAdministrador.iniciarSesion(data);
+exports.iniciandoSesion = (req,res)=>{
+    modeloAdministrador.iniciarSesion(req,res);
     
-    if(resp!=null){
-        console.log('Inicio cesion correctamente...');
-    }
 }
