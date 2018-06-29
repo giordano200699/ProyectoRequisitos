@@ -1,5 +1,5 @@
 const Alumno = require('../esquemas/Alumno');
-const Carpeta = require('../esquemas/Carpeta');
+const Carpeta = require('../esquemas/Administrador');
 
 
 exports.crearAlumno = (data) => {

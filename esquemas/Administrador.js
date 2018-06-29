@@ -6,6 +6,7 @@ const Administrador = sequelize.define('administrador', {
   nombres: Sequelize.STRING,
   apellidos: Sequelize.STRING,
   correo: { type: Sequelize.STRING, allowNull: true },
+  codigo: { type: Sequelize.STRING, allowNull: false },
   password: Sequelize.STRING
 });
 
