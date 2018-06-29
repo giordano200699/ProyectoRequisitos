@@ -9,7 +9,7 @@ exports.crearAlumno = (req, res) => {
     	codigoPregrado: req.body.codigoPregrado
   	};
 	am.crearAlumno(alumno);
-	res.redirect('/admin/alumnos')
+	//res.redirect('/admin/alumnos')
 }
 
 exports.mostrarAlumnos = (req, res) => {
