@@ -1,40 +1,74 @@
+
+
 extends layout
 
 block content
-
-  div(id='login')
-    h2 BIENVENIDO
-    button(onclick="document.getElementById('id01').style.display='block'",style="width: auto;") Iniciar Sesion
-
-  div.modal(id='id01')
-    form(class=["modal-content","animate"],action="validacion")
-      div.imgcontainer
-        span(onclick="document.getElementById('id01').style.display='none'", class="close", title="Close Modal") &times;
-        img(src="/imagenes/login.png", alt="Avatar", class="avatar")
-
-        div(class="container")
-          label(for="nombreCuenta")
-            b Administrador
-          input(type="text", name="nombreCuenta", required="true")
-
-          label(for="contrasenia")
-            b Constraseña
-          input(type="password", name="contrasenia", required="true")
-
-          button(type="submit") Login
-
-          label
-            input(type="checkbox", checked="checked", name='rememver', value="Recuerdame")
-        div(class="container", style="background-color: #f1f1f1")
-          button(type="button", onclick="document.getElementById('id01').style.display='none'", class="cancelbtn") Cancelar
-          span(class="psw") Olvidaste tu
-            a(href="#") password?
-
-  script
-    | var modal=document.getElementById('id01');
-    | window.onclick=function(event){
-    |     if(event.target==modal){
-    |        modal.style.display="none";
-    |    }
-    | }
   
+  div(class="preloader")
+    div(class="cssload-speeding-wheel")
+  
+  section#wrapper.login-register
+      .login-box.login-sidebar
+        .white-box
+          form(class="form-horizontal form-material",id="loginform",action="validacion")
+
+            a.text-center.db(href='javascript:void(0)')
+              img(src='/plugins/images/admin-logo-dark.png', alt='Home')
+              br
+              img(src='/plugins/images/admin-text-dark.png', alt='Home')
+            |   
+            |         
+            |         
+            .form-group.m-t-40
+              .col-xs-12
+                input.form-control(type='text', required='true',name='nombreCuenta', placeholder='Administrador')
+            |         
+            .form-group
+              .col-xs-12
+                input.form-control(type='password', required='true',name='contrasenia', placeholder='Constraseña')
+            |         
+            .form-group
+              .col-md-12
+                .checkbox.checkbox-primary.pull-left.p-t-0
+                  input#checkbox-signup(type='checkbox')
+                  |               
+                  label(for='checkbox-signup')  Remember me 
+                |             
+                a#to-recover.text-dark.pull-right(href='javascript:void(0)')
+                  i.fa.fa-lock.m-r-5
+                  |  Forgot pwd?
+            |         
+            .form-group.text-center.m-t-20
+              .col-xs-12
+                button.btn.btn-info.btn-lg.btn-block.text-uppercase.waves-effect.waves-light(type='submit') Log In
+            |         
+            .row
+              .col-xs-12.col-sm-12.col-md-12.m-t-10.text-center
+                .social
+                  a.btn.btn-facebook(href='javascript:void(0)', data-toggle='tooltip', title='Login with Facebook')
+                    i.fa.fa-facebook(aria-hidden='true')
+                  |  
+                  a.btn.btn-googleplus(href='javascript:void(0)', data-toggle='tooltip', title='Login with Google')
+                    i.fa.fa-google-plus(aria-hidden='true')
+            |         
+            .form-group.m-b-0
+              .col-sm-12.text-center
+                p
+                  | Don&apos;t have an account? 
+                  a.text-primary.m-l-5(href='register2.html')
+                    b Sign Up
+          |       
+          form#recoverform.form-horizontal(action='index.html')
+            .form-group
+              .col-xs-12
+                h3 Recover Password
+                |             
+                p.text-muted Enter your Email and instructions will be sent to you! 
+            |         
+            .form-group
+              .col-xs-12
+                input.form-control(type='text', required='', placeholder='Email')
+            |         
+            .form-group.text-center.m-t-20
+              .col-xs-12
+                button.btn.btn-primary.btn-lg.btn-block.text-uppercase.waves-effect.waves-light(type='submit') Reset

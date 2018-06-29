@@ -1,30 +1,88 @@
-doctype html
-html
-  head
-    title= title
-    //link(rel='stylesheet', href='/stylesheets/style.css')
-    //link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css', integrity='sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4', crossorigin='anonymous')
-    //link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.0.13/css/all.css', integrity='sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp', crossorigin='anonymous')
+doctype html(lang='en')
+head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', type='image/png', sizes='16x16', href='/plugins/images/favicon.png')
+    title Ample Admin Template - The Ultimate Multipurpose admin template
+    link(href='/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css', rel='stylesheet')
+    link(href='/css/animate.css', rel='stylesheet')
+    link(href='/css/style.css', rel='stylesheet')
+    link#theme(href='/css/colors/megna-dark.css', rel='stylesheet')
+    link(href="/plugins/bower_components/datatables/jquery.dataTables.min.css", rel="stylesheet",type="text/css")
+    link(href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css",rel="stylesheet",type="text/css")
 
-    link(rel='stylesheet', href='/stylesheets/layout.css')
+body.fix-header
+  #wrapper
+    nav(class="navbar navbar-default navbar-static-top m-b-0")
+      div(class="navbar-header")
+       div(class="top-left-part")
+        a(class="logo",href="index.html")
+         b
+          img(src="/plugins/images/admin-logo.png",alt="home",class="dark-logo")
+          img(src="/plugins/images/admin-logo-dark.png",alt="home",class="light-logo")
+         span(class="hidden-xs")
+          img(src="/plugins/images/admin-text.png",alt="home",class="dark-logo")
+          img(src="/plugins/images/admin-text-dark.png",alt="home",class="light-logo")
 
-    //script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
-    //script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js', integrity='sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ', crossorigin='anonymous')
-    //script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js', integrity='sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm', crossorigin='anonymous')
-  body
-    div.header
-        h1='UNIDAD DE MATRICULA'
-        p='copia de cero papel xD'
-
-    .topnav
-        a(href='/admin') LOGO
-        a(href='/admin') Alumnos
-        a(href='/admin/alumnos') Agregar Alumnos
-        a(href='/admin/alumnos/mostrar') Mostrar Alumnos
-        a.cerrarSesion(href='/') Cerra Sesion
-    div.row
-      block content
-    .footer
-        h2 Este es el footer
-
-
+    .navbar.navbar-default.sidebar(role='navigation')
+      .sidebar-nav
+        ul#side-menu.nav
+          li
+            a.waves-effect(href='widgets.html')
+              i.mdi.mdi-av-timer.fa-fw(data-icon='v')
+              |  
+              span.hide-menu  Inicio 
+          |                     
+          li
+            a.waves-effect(href='javascript:void(0)')
+              i.mdi.mdi-av-timer.fa-user(data-icon='v')
+              |  
+              span.hide-menu
+                | Estudiantes 
+                span.fa.arrow
+                |  
+                span.label.label-rouded.label-inverse.pull-right 4
+            |                         
+            ul.nav.nav-second-level
+              li
+                a(href="/admin/alumnos/mostrar")
+                  i.fa-fw P
+                  span.hide-menu Pregrado
+              |                             
+              li
+                a(href="/admin/alumnos/mostrar")
+                  i.fa-fw B
+                  span.hide-menu Bachiller
+              |                             
+              li
+                a(href="/admin/alumnos/mostrar")
+                  i.fa-fw T
+                  span.hide-menu Titulo
+          |                     
+          li
+            a.waves-effect(href='/admin/alumnos')
+              i.mdi.mdi-settings.fa-fw
+              |  
+              span.hide-menu  Crear Alumno 
+    |         
+    #page-wrapper
+      .container-fluid
+        .row.bg-title
+                    
+        .row
+          .col-md-12
+            .white-box
+              block content
+      |                 
+      footer.footer.text-center  2017 &copy; Ample Admin brought to you by themedesigner.in 
+  |     
+  script(src='/plugins/bower_components/jquery/dist/jquery.min.js')
+  script(src='/bootstrap/dist/js/bootstrap.min.js')
+  script(src='/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js')
+  script(src='js/jquery.slimscroll.js')
+  script(src='js/waves.js')
+  script(src='js/custom.js')

@@ -1,60 +1,143 @@
 extends ../layout2
 
 block content
-  a(class=["navbar-brand"], href="../alumnos") Crear Alumnos
-  -if(alumnos.length)
-    table
-      tr
-        th Id
-        th Nombres
-        th Apellidos
-        th Email
-        th Codigo Pregrado
-        th Visualizar
-        th Editar
-        th Eliminar
-      -each alumno in alumnos
-        tr
-          td #{alumno.idAlumno}
-          td #{alumno.nombres}
-          td #{alumno.apellidos}
-          td #{alumno.correo}
-          td #{alumno.codigoPregrado}
-          td
+    div(class="row")
+      div(class="col-md-5")
+        h3(class="box-title m-b-0") Estudiantes Pregrado
+      div(class="col-md-7")
+      div(id="responsive-modal",class="modal fade",tabindex="-1",role="dialog",aria-labelledby="myModalLabel",aria-hidden="true",style="display: none;")
+          div(class="modal-dialog")
+            div(class="modal-content")
+                div(class="modal-header")
+                    button(type="button",class="close",data-dismiss="modal",aria-hidden="true") ×
+                    h4(class="modal-title") Crear Estudiante
+                div(class="modal-body")
+                    form
+                      div(class="row") 
+                       div(class="col-md-6")
+                         div(class="form-group")
+                           label(class="control-label") Nombre:
+                           input(type="text",class="form-control",id="nombre")
+                       div(class="col-md-6")
+                         div(class="form-group")
+                           label(class="control-label") Apellidos:
+                           input(type="text",class="form-control",id="apellidos")
+                       div(class="col-md-6")
+                         div(class="form-group")
+                           label(class="control-label") Grado Academico:
+                           input(type="text",class="form-control",id="grado")
+                       div(class="col-md-6")
+                         div(class="form-group")
+                           label(class="control-label") Codigo Pregrado:
+                           input(type="text",class="form-control",id="codigoP")
+                       div(class="col-md-6")
+                         div(class="form-group")
+                           label(class="control-label") Codigo Bachiller:
+                           input(type="text",class="form-control",id="codigoB")
+                       div(class="col-md-6")
+                         div(class="form-group")
+                           label(class="control-label") Codigo Titulo:
+                           input(type="text",class="form-control",id="codigoT")
+                
+                div(class="modal-footer")
+                    button(type="button",class="btn btn-default waves-effect", data-dismiss="modal") Cancelar
+                    button(type="button",class="btn btn-danger waves-effect waves-light") Crear
+        
+        button(type="button",class="btn btn-default pull-right",data-toggle="modal",data-target="#responsive-modal") Crear Alumno
+    
+    div(class="row")
+      div(class="col-md-12")
+        -if(alumnos.length)
+        div(class="table-responsive")
+          table(class="table table-hover",id="tabla")
+            thead
+              tr
+                th Id
+                th Nombres
+                th Apellidos
+                th Email
+                th Codigo Pregrado
+                th Visualizar
+                th Editar
+                th Eliminar
+            tbody
+              -each alumno in alumnos
+                tr
+                  td #{alumno.idAlumno}
+                  td #{alumno.nombres}
+                  td #{alumno.apellidos}
+                  td #{alumno.correo}
+                  td #{alumno.codigoPregrado}
+                  td
+                    form(action='visualizar', method='POST')
+                      input(
+                        type ='text'
+                        name ='idAlumno'
+                        hidden = 'true',
+                        value = '#{alumno.idAlumno}'
+                      )
+                      button(type='submit',class="btn btn-default") Visualizar
+                  
+                  td
+                    form(action='editar', method='POST')
+                      input(
+                        type ='text'
+                        name ='idAlumno'
+                        hidden = 'true',
+                        value = '#{alumno.idAlumno}'
+                      )
+                      button(type='submit',class="btn btn-default") Editar
+                  
+                  td
+                    form(action='eliminar', method='POST')
+                      input(
+                        type ='text'
+                        name ='idAlumno'
+                        hidden = 'true',
+                        value = '#{alumno.idAlumno}'
+                      )
+                      button(type='submit',class="btn btn-default") Eliminar
 
-            form(action='visualizar', method='POST')
-              input(
-                type ='text'
-                name ='idAlumno'
-                hidden = 'true',
-                value = '#{alumno.idAlumno}'
-              )
-              button(
-                type='submit'
-              ) Visualizar
-          
-          td
-          
-            form(action='editar', method='POST')
-              input(
-                type ='text'
-                name ='idAlumno'
-                hidden = 'true',
-                value = '#{alumno.idAlumno}'
-              )
-              button(
-                type='submit'
-              ) Editar
-          
-          td
-          
-            form(action='eliminar', method='POST')
-              input(
-                type ='text'
-                name ='idAlumno'
-                hidden = 'true',
-                value = '#{alumno.idAlumno}'
-              )
-              button(
-                type='submit'
-              ) Eliminar
+    script(src="/plugins/bower_components/jquery/dist/jquery.min.js")
+    script(src="/plugins/bower_components/datatables/jquery.dataTables.min.js")
+
+    script.
+        $('#tabla').DataTable();
+        $(document).ready(function() {
+            var table = $('#example').DataTable({
+                "columnDefs": [{
+                    "visible": false,
+                    "targets": 2
+                }],
+                "order": [
+                    [2, 'asc']
+                ],
+                "displayLength": 25,
+                "drawCallback": function(settings) {
+                    var api = this.api();
+                    var rows = api.rows({
+                        page: 'current'
+                    }).nodes();
+                    var last = null;
+                    api.column(2, {
+                        page: 'current'
+                    }).data().each(function(group, i) {
+                        if (last !== group) {
+                            $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
+                            last = group;
+                        }
+                    });
+                }
+            });
+            // Order by the grouping
+            $('#example tbody').on('click', 'tr.group', function() {
+                var currentOrder = table.order()[0];
+                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                    table.order([2, 'desc']).draw();
+                } else {
+                    table.order([2, 'asc']).draw();
+                }
+            });
+        });
+
+      
