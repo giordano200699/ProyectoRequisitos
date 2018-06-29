@@ -14,6 +14,7 @@ head
     link#theme(href='/css/colors/megna-dark.css', rel='stylesheet')
     link(href="/plugins/bower_components/datatables/jquery.dataTables.min.css", rel="stylesheet",type="text/css")
     link(href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css",rel="stylesheet",type="text/css")
+    link(href='/plugins/bower_components/dropify/dist/css/dropify.min.css',rel="stylesheet")
 
 body.fix-header
   #wrapper
@@ -68,9 +69,9 @@ body.fix-header
               i.mdi.mdi-settings.fa-fw
               |  
               span.hide-menu  Crear Alumno 
-          li
-            a.waves-effect(href='/')
-              i.mdi.mdi-settings.fa-fw
+           li
+            a(class="waves-effect dd",href='/')
+              i.mdi.mdi-av-timer.fa-fw(data-icon='v')
               |  
               span.hide-menu  Cerrar Sesion
     |         
@@ -85,9 +86,15 @@ body.fix-header
       |                 
       footer.footer.text-center  2017 &copy; Ample Admin brought to you by themedesigner.in 
   |     
+
+  
   script(src='/plugins/bower_components/jquery/dist/jquery.min.js')
   script(src='/bootstrap/dist/js/bootstrap.min.js')
+  script(src="/js/jasny-bootstrap.js")
+  script(src="/plugins/bower_components/dropify/dist/js/dropify.min.js")
   script(src='/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js')
-  script(src='js/jquery.slimscroll.js')
-  script(src='js/waves.js')
-  script(src='js/custom.js')
+  script(src='/js/jquery.slimscroll.js')
+  script(src='/js/waves.js')
+  script(src='/js/custom.js')
+  script(src="/plugins/bower_components/styleswitcher/jQuery.style.switcher.js")
+

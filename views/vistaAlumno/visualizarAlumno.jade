@@ -38,18 +38,15 @@ block content
             div(class="modal-content")
                 div(class="modal-header")
                     button(type="button",class="close",data-dismiss="modal",aria-hidden="true") ×
-                    h4(class="modal-title") Modal Content is Responsive
+                    h4(class="modal-title") Agregar Documento
                 div(class="modal-body")
                     form
-                        div(class="form-group")
-                            label(for="recipient-name",class="control-label") Recipient:
-                            input(type="text",class="form-control",id="recipient-name")
-                        div(class="form-group")
-                            label(for="message-text",class="control-label") Message:
-                            textarea(class="form-control",id="message-text")
+                        div(class="white-box")
+                         label Your so fresh input file — Default version
+                         input(type="file",id="input-file-now",class="dropify")
                 
                 div(class="modal-footer")
-                    button(type="button",class="btn btn-default waves-effect", data-dismiss="modal") Close
+                    button(type="button",class="btn btn-default waves-effect", data-dismiss="modal") Cancelar
                     button(type="button",class="btn btn-danger waves-effect waves-light") Save changes
         
         button(type="button",class="btn btn-default pull-right",data-toggle="modal",data-target="#responsive-modal") Agregar Documento
@@ -87,3 +84,7 @@ block content
       div(class="product-text")
        h3(class="box-title") Silla
 
+  script(src='/plugins/bower_components/jquery/dist/jquery.min.js')
+  script(src="/plugins/bower_components/dropify/dist/js/dropify.min.js")
+  script.
+    $('.dropify').dropify();

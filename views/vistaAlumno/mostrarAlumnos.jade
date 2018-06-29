@@ -8,40 +8,44 @@ block content
       div(id="responsive-modal",class="modal fade",tabindex="-1",role="dialog",aria-labelledby="myModalLabel",aria-hidden="true",style="display: none;")
           div(class="modal-dialog")
             div(class="modal-content")
+              form(action='/alumnos/creando', method='POST')
                 div(class="modal-header")
                     button(type="button",class="close",data-dismiss="modal",aria-hidden="true") ×
                     h4(class="modal-title") Crear Estudiante
                 div(class="modal-body")
-                    form
                       div(class="row") 
                        div(class="col-md-6")
                          div(class="form-group")
                            label(class="control-label") Nombre:
-                           input(type="text",class="form-control",id="nombre")
+                           input(type="text",class="form-control",name="nombres")
                        div(class="col-md-6")
                          div(class="form-group")
                            label(class="control-label") Apellidos:
-                           input(type="text",class="form-control",id="apellidos")
+                           input(type="text",class="form-control",name="apellidos")
                        div(class="col-md-6")
                          div(class="form-group")
                            label(class="control-label") Grado Academico:
-                           input(type="text",class="form-control",id="grado")
+                           input(type="text",class="form-control",name="grado")
+                       div(class="col-md-6")
+                         div(class="form-group")
+                           label(class="control-label") Email
+                           input(type="text",class="form-control",name="correo")
                        div(class="col-md-6")
                          div(class="form-group")
                            label(class="control-label") Codigo Pregrado:
-                           input(type="text",class="form-control",id="codigoP")
+                           input(type="text",class="form-control",name="codigoPregrado")
                        div(class="col-md-6")
                          div(class="form-group")
                            label(class="control-label") Codigo Bachiller:
-                           input(type="text",class="form-control",id="codigoB")
+                           input(type="text",class="form-control",name="codigoB")
                        div(class="col-md-6")
                          div(class="form-group")
                            label(class="control-label") Codigo Titulo:
-                           input(type="text",class="form-control",id="codigoT")
+                           input(type="text",class="form-control",name="codigoT")
                 
                 div(class="modal-footer")
                     button(type="button",class="btn btn-default waves-effect", data-dismiss="modal") Cancelar
-                    button(type="button",class="btn btn-danger waves-effect waves-light") Crear
+                    button(type="submit",class="btn btn-danger waves-effect waves-light") Crear
         
         button(type="button",class="btn btn-default pull-right",data-toggle="modal",data-target="#responsive-modal") Crear Alumno
     
