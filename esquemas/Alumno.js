@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../database/db');
 
-const Carpeta = require('./Carpeta');
 const Imagen = require('./Imagen');
+const Alumno_gradoAcademico = require('./Alumno_GradoAcademico');
 
 var Alumno = sequelize.define('alumno', {
   idAlumno: { type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true },
@@ -14,14 +14,14 @@ var Alumno = sequelize.define('alumno', {
   codigoTitulo: { type: Sequelize.STRING, allowNull: true }
 });
 
-Alumno.obtenerCarpetas = Alumno.hasMany(Carpeta, { foreignKey: 'idCarpetaPadre',as: 'carpetas' });
+Alumno.obtenerImagenes=Alumno.hasMany(Imagen, { foreignKey: 'idAlumno' ,as: 'imagenes'});
 
-const obtenerImagenes=Alumno.hasMany(Imagen, { foreignKey: 'idAlumno' ,as: 'imagenes'});
+Alumno.obtenerAlumno_gradoAcademicos=Alumno.hasMany(Alumno_gradoAcademico, { foreignKey: 'idAlumno' ,as: 'alumno_gradoAcademicos'});
 
 
-//Descomentar esto para crear la tabla y usar npm start
-//Al crear la tabla comentar esto y reiniciar el servidor
+//Descomentar para crear la tabla Alumno
 //Alumno.sync();
-//const objeto = {Alumno:Alumno,obtenerCarpetas:obtenerCarpetas};
 
+//Descomentar para crear la tabla imagen
+//Imagen.sync();
 module.exports = Alumno;
