@@ -55,37 +55,13 @@ block content
         button(type="button",class="btn btn-default pull-right",data-toggle="modal",data-target="#responsive-modal") Agregar Documento
     
   div(class="row")
-    div(class="col-md-3")
-     div(class="white-box")
-      div(class="product-img")
-       img(src="/plugins/images/chair.jpg")
-      div(class="product-text")
-       h3(class="box-title") Silla 0
-    div(class="col-md-3")
-     div(class="white-box")
-      div(class="product-img")
-       img(src="/plugins/images/chair4.jpg")
-      div(class="product-text")
-       h3(class="box-title") Silla 4
-
-    div(class="col-md-3")
-     div(class="white-box")
-      div(class="product-img")
-       img(src="/plugins/images/chair2.jpg")
-      div(class="product-text")
-       h3(class="box-title") Silla 2
-    div(class="col-md-3")
-     div(class="white-box")
-      div(class="product-img")
-       img(src="/plugins/images/chair3.jpg")
-      div(class="product-text")
-       h3(class="box-title") Silla 3
-    div(class="col-md-3")
-     div(class="white-box")
-      div(class="product-img")
-       img(src="/plugins/images/chair.jpg")
-      div(class="product-text")
-       h3(class="box-title") Silla
+    -each imagen in imagenes
+      div(class="col-md-3")
+       div(class="white-box")
+        div(class="product-img")
+         img(src="#{imagen.url}")
+        div(class="product-text")
+         h3(class="box-title") Silla 0
 
   script(src='public/plugins/bower_components/jquery/dist/jquery.min.js')
   script(src="public/plugins/bower_components/dropify/dist/js/dropify.min.js")

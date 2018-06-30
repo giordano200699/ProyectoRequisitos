@@ -17,7 +17,7 @@ exports.subirImagen = (req, res) => {
        fs.unlink('./uploads/'+req.files[x].filename); 
     }  
     const imagen = {
-    	url: 'public/imagenes/'+direccion,
+    	url: '/imagenes/'+direccion,
         orden: req.body.orden,
         esSuelto: true,
         descripcion: req.body.descripcion,
