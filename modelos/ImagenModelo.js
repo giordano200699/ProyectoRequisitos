@@ -1,5 +1,4 @@
 const Imagen = require('../esquemas/Imagen');
-const Carpeta = require('../esquemas/Carpeta');
 
 
 exports.crearImagen = (data) => {
@@ -8,6 +7,6 @@ exports.crearImagen = (data) => {
     orden: data.orden,
     esSuelto: data.esSuelto,
     descripcion: data.descripcion,
-    idCarpeta: data.idCarpeta
+    idAlumno: data.idAlumno
   });
 }

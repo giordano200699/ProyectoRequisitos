@@ -1,27 +1,32 @@
 const Alumno = require('../esquemas/Alumno');
-const Carpeta = require('../esquemas/Administrador');
+//const Carpeta = require('../esquemas/Matricula');
 
 
 exports.crearAlumno = (data) => {
 	Alumno.create({
-    nombres: data.nombres,
-    apellidos: data.apellidos,
-    correo: data.correo,
-    codigoPregrado: data.codigoPregrado,
-    carpetas: [
-      {
-        tipo: 'Pregrado',
-        descripcion: 'Carpeta Pregrado para el alumno '+data.apellidos+" "+data.apellidos
-      }
-    ]
-  }, {
-  include: [{
-    model: Carpeta,
-    as: 'carpetas'
-  }]
-});
+      nombres: data.nombres,
+      apellidos: data.apellidos,
+      correo: data.correo,
+      codigoPregrado: data.codigoPregrado
+  });
   
-  
+//   Alumno.create({
+//     nombres: data.nombres,
+//     apellidos: data.apellidos,
+//     correo: data.correo,
+//     codigoPregrado: data.codigoPregrado,
+//     carpetas: [
+//       {
+//         tipo: 'Pregrado',
+//         descripcion: 'Carpeta Pregrado para el alumno '+data.apellidos+" "+data.apellidos
+//       }
+//     ]
+//   }, {
+//     include: [{
+//       model: Carpeta,
+//       as: 'carpetas'
+//     }]
+// });
 	console.log("Se creo un alumno");
 };
 

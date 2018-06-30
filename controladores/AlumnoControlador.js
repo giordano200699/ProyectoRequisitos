@@ -21,10 +21,9 @@ exports.mostrarAlumnos = (req, res) => {
 
 exports.visualizarAlumno = (req, res) => {
   am.obtener(req.body.idAlumno,(err, alumno)=>{
-    if(err) return console.log(err);
-    alumno.getCarpetas().then(carpetas => {
-      //console.log("ESTE ES EL ALUMNO ",carpetas[0].tipo);
-      res.render('vistaAlumno/visualizarAlumno',{alumno : alumno, carpetas: carpetas});
+		if(err) return console.log(err);
+    alumno.getImagenes().then(imagenes => {
+			res.render('vistaAlumno/visualizarAlumno',{alumno : alumno, imagenes: imagenes});
     });
   });
 }

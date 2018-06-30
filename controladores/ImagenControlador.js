@@ -21,7 +21,7 @@ exports.subirImagen = (req, res) => {
         orden: req.body.orden,
         esSuelto: true,
         descripcion: req.body.descripcion,
-        idCarpeta: req.body.idCarpeta
+        idAlumno: req.body.idAlumno
   	};
      console.log("LA IMAGEN ES ",imagen);
   	im.crearImagen(imagen);

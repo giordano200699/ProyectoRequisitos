@@ -5,9 +5,9 @@ const Imagen = require('./Imagen');
 const Alumno_gradoAcademico = require('./Alumno_GradoAcademico');
 const Alumno_matricula = require('./Alumno_Matricula');
 
-const GradoAcademico = require('./GradoAcademico');
+//const GradoAcademico = require('./GradoAcademico');
 //const Matricula = require('./Matricula');
-const TipoDocumento = require('./TipoDocumento');
+//const TipoDocumento = require('./TipoDocumento');
 
 var Alumno = sequelize.define('alumno', {
   idAlumno: { type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true },
