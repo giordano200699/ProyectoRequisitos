@@ -42,11 +42,10 @@ block content
                     h4(class="modal-title") Agregar Documento
                 form(action='subirFoto', method='POST', enctype="multipart/form-data")
                   div(class="modal-body")
-                    
                     div(class="white-box")
                       label Your so fresh input file — Default version
                       input(type="file",id="input-file-now",class="dropify", name='foto')
-                    input(type="text", value="#{alumno.idAlumno}",hidden='true', name='idAlumno')
+                      input(type="text", value="#{alumno.idAlumno}",hidden='true', name='idAlumno')
                 
                   div(class="modal-footer")
                     button(type="button",class="btn btn-default waves-effect", data-dismiss="modal") Cancelar
@@ -87,7 +86,7 @@ block content
       div(class="product-text")
        h3(class="box-title") Silla
 
-  script(src='public/plugins/bower_components/jquery/dist/jquery.min.js')
-  script(src="public/plugins/bower_components/dropify/dist/js/dropify.min.js")
-  script
-    | $('.dropify').dropify();
+  script(src='/plugins/bower_components/jquery/dist/jquery.min.js')
+  script(src="/plugins/bower_components/dropify/dist/js/dropify.min.js")
+  script.
+    $('.dropify').dropify();
